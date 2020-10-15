@@ -80,6 +80,7 @@
       true,
       "single"
     ],
+    "ordered-imports": true,
     "semicolon": {
       "options": [
         "always"
