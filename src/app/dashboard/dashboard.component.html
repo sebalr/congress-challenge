@@ -1,8 +1,5 @@
-<slr-table>
-  <slr-table-header>
-
-  </slr-table-header>
-  <slr-table-row *ngFor="let member of filteredCongressList">
-
-  </slr-table-row>
-</slr-table>
+<slr-member-list *ngIf="filteredCongressList.length >0; else noResult" [congressMembersList]="filteredCongressList">
+</slr-member-list>
+<ng-template #noResult>
+  No members found
+</ng-template>
