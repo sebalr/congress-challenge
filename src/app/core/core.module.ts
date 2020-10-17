@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from 'src/app/core/components/footer/footer.component';
+import { HeaderComponent } from 'src/app/core/components/header/header.component';
 
 
 
@@ -10,8 +11,10 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent,
     FooterComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
+
   exports: [
     FooterComponent,
     HeaderComponent
