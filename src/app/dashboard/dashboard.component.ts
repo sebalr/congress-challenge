@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CongressMembersService } from 'src/app/shared/services/congress-members.service';
+import { ICongressMember } from '../shared/interfaces/congress-member.interface';
 @Component({
   selector: 'slr-dashboard',
   templateUrl: './dashboard.component.html',
@@ -7,11 +8,20 @@ import { CongressMembersService } from 'src/app/shared/services/congress-members
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private congressService: CongressMembersService) { }
+  private congressList: Array<ICongressMember>;
+  public filteredCongressList: Array<ICongressMember>;
+
+  constructor(private congressService: CongressMembersService) {
+    this.congressList = new Array();
+    this.filteredCongressList = new Array();
+  }
 
   ngOnInit(): void {
     this.congressService.getCongressMembers(116, "senate")
-      .subscribe(res => console.log(res));
+      .subscribe(res => {
+        this.congressList = res.members;
+        this.filteredCongressList = res.members;
+      });
   }
 
 }
