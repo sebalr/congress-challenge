@@ -8,6 +8,7 @@
       ]
     },
     "array-type": false,
+    "array-element-newline": "always",
     "arrow-return-shorthand": true,
     "curly": true,
     "deprecation": {
