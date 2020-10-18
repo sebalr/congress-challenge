@@ -3,6 +3,21 @@
   <input id="input-seach" type="text" placeholder="Search by any field" [formControl]="searchInputForm">
 </label>
 
+<button (click)="toggleFilters()">
+  {{filtersExpanded ? 'hide': 'filters'}}
+</button>
+
+<ng-container *ngIf="filtersExpanded">
+  <label>
+    Name:
+    <input id="name-seach" type="text" placeholder="Search by name" [formControl]="nameInputForm">
+  </label>
+  <label>
+    Party:
+    <input id="party-seach" type="text" placeholder="Search by party field" [formControl]="partyInputForm">
+  </label>
+</ng-container>
+
 <slr-member-list *ngIf="filteredCongressList.length >0; else noResult" [congressMembersList]="filteredCongressList">
 </slr-member-list>
 <ng-template #noResult>

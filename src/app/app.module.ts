@@ -18,7 +18,7 @@ import { LoggerInterceptor } from 'src/app/core/interceptors/logger.interceptor'
     CoreModule,
   ],
   providers: [
-    { provide: ErrorHandler, useClass: GlobalErrorHandlerService }
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggerInterceptor, multi: true }
   ],

@@ -16,16 +16,27 @@ export class CongressMembersComponent implements OnInit, OnDestroy {
   private congressList: Array<CongressMemberModel>;
   private subscriptions = new Subscription();
   public searchInputForm = new FormControl('');
+  public nameInputForm = new FormControl('');
+  public partyInputForm = new FormControl('');
   public filteredCongressList: Array<CongressMemberModel>;
+  public filtersExpanded: boolean;
 
   constructor(private congressService: CongressMembersService) {
     this.congressList = new Array();
     this.filteredCongressList = new Array();
+    this.filtersExpanded = false;
   }
 
   ngOnInit(): void {
     this.getCongressMembers();
     this.initSearchInputs();
+  }
+
+  public toggleFilters() {
+    this.filtersExpanded = !this.filtersExpanded;
+    this.nameInputForm.setValue('');
+    this.partyInputForm.setValue('');
+    this.filteredCongressList = [...this.congressList];
   }
 
   private getCongressMembers(): void {
@@ -45,8 +56,33 @@ export class CongressMembersComponent implements OnInit, OnDestroy {
       this.searchInputForm.valueChanges.pipe(
         debounceTime(300),
         distinctUntilChanged()
-      ).subscribe(value =>
-        this.filteredCongressList = this.congressList.filter(x => x.toString().includes(value))
+      ).subscribe(value => {
+        this.nameInputForm.setValue('');
+        this.partyInputForm.setValue('');
+        this.filteredCongressList = this.congressList.filter(x => x.toString().includes(value?.toLowerCase()))
+      }
+      )
+    );
+    this.subscriptions.add(
+      this.nameInputForm.valueChanges.pipe(
+        debounceTime(300),
+        distinctUntilChanged()
+      ).subscribe(value => {
+        this.partyInputForm.setValue('');
+        this.searchInputForm.setValue('');
+        this.filteredCongressList = this.congressList.filter(x => x.fullName().includes(value?.toLowerCase()))
+      }
+      )
+    );
+    this.subscriptions.add(
+      this.partyInputForm.valueChanges.pipe(
+        debounceTime(300),
+        distinctUntilChanged()
+      ).subscribe(value => {
+        this.nameInputForm.setValue('');
+        this.searchInputForm.setValue('');
+        this.filteredCongressList = this.congressList.filter(x => x.party?.toLowerCase().includes(value?.toLowerCase()))
+      }
       )
     );
   }

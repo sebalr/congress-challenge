@@ -63,6 +63,11 @@ export class CongressMemberModel {
   public toString(): string {
     return Object.getOwnPropertyNames(this)
       .map(x => this[x])
-      .reduce((acc, prop) => `${acc}${prop}`, '');
+      .reduce((acc, prop) => `${acc}${prop}`, '')
+      .toLowerCase();
+  }
+
+  public fullName(): string {
+    return `${this.first_name}${this.middle_name}${this.last_name}`.toLowerCase();
   }
 }
