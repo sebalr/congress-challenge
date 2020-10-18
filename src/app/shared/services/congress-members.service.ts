@@ -15,7 +15,7 @@ export class CongressMembersService {
     return this.apiService.getCongressMembers(congress, chamber);
   }
 
-  public getCongressMember(id: string): Observable<ICongressMembersResult> {
+  public getCongressMember(id: string): Observable<any> {
     return this.apiService.getCongressMember(id);
   }
 }

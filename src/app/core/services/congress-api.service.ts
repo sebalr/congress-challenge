@@ -25,7 +25,7 @@ export class CongressApiService {
         )
       );
   }
-  public getCongressMember(id: string): Observable<ICongressMembersResult> {
+  public getCongressMember(id: string): Observable<any> {
     return this.http.get<ICongressMembersResponse>(`${this.apiUrl}/congress/v1/members/${id}.json`)
       .pipe(
         map(

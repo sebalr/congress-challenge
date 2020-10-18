@@ -14,8 +14,7 @@ export class MemberDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private membersService: CongressMembersService) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      console.log(params);
+    this.route.params.subscribe(params => {
       this.member$ = this.membersService.getCongressMember(params.id);
     });
   }
