@@ -32,7 +32,7 @@ export class CongressMembersComponent implements OnInit, OnDestroy {
     this.initSearchInputs();
   }
 
-  public toggleFilters() {
+  public toggleFilters(): void {
     this.filtersExpanded = !this.filtersExpanded;
     this.nameInputForm.setValue('');
     this.partyInputForm.setValue('');
@@ -59,7 +59,7 @@ export class CongressMembersComponent implements OnInit, OnDestroy {
       ).subscribe(value => {
         this.nameInputForm.setValue('', { emitEvent: false });
         this.partyInputForm.setValue('', { emitEvent: false });
-        this.filteredCongressList = this.congressList.filter(x => x.toString().includes(value?.toLowerCase()))
+        this.filteredCongressList = this.congressList.filter(x => x.toString().includes(value?.toLowerCase()));
       }
       )
     );
@@ -70,7 +70,7 @@ export class CongressMembersComponent implements OnInit, OnDestroy {
       ).subscribe(value => {
         this.partyInputForm.setValue('', { emitEvent: false });
         this.searchInputForm.setValue('', { emitEvent: false });
-        this.filteredCongressList = this.congressList.filter(x => x.fullName().includes(value?.toLowerCase()))
+        this.filteredCongressList = this.congressList.filter(x => x.fullName().includes(value?.toLowerCase()));
       }
       )
     );
@@ -81,13 +81,13 @@ export class CongressMembersComponent implements OnInit, OnDestroy {
       ).subscribe(value => {
         this.nameInputForm.setValue('', { emitEvent: false });
         this.searchInputForm.setValue('', { emitEvent: false });
-        this.filteredCongressList = this.congressList.filter(x => x.party?.toLowerCase().includes(value?.toLowerCase()))
+        this.filteredCongressList = this.congressList.filter(x => x.party?.toLowerCase().includes(value?.toLowerCase()));
       }
       )
     );
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
 

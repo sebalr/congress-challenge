@@ -18,7 +18,7 @@ export class MemberListComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  public memberClicked(memer: CongressMemberModel) {
+  public memberClicked(memer: CongressMemberModel): void {
     this.router.navigate(['/detail', memer.id]);
   }
 

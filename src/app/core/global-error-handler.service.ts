@@ -5,7 +5,7 @@ import { ErrorHandler, Injectable } from '@angular/core';
 })
 export class GlobalErrorHandlerService implements ErrorHandler {
   constructor() { }
-  handleError(error) {
+  handleError(error): void {
     console.log('From error handler:', error);
     throw error;
   }

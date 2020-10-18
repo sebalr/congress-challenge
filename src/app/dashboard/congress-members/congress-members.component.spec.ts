@@ -7,7 +7,7 @@ import { CongressMembersComponent } from './congress-members.component';
 describe('CongressMembersComponent', () => {
   let component: CongressMembersComponent;
   let fixture: ComponentFixture<CongressMembersComponent>;
-  let mockService = jasmine.createSpyObj('service', ['getCongressMembers']);
+  const mockService = jasmine.createSpyObj('service', ['getCongressMembers']);
   mockService.getCongressMembers.and.returnValue(of({ members: [] }));
 
   beforeEach(async(() => {

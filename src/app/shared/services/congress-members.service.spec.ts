@@ -6,7 +6,7 @@ import { CongressMembersService } from './congress-members.service';
 
 describe('CongressMembersService', () => {
   let service: CongressMembersService;
-  let apiService = jasmine.createSpy();
+  const apiService = jasmine.createSpy();
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],

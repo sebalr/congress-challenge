@@ -12,7 +12,7 @@ export class TableRowComponent implements OnInit {
   @Output() public elementSelected = new EventEmitter<any>();
 
   @HostListener('click')
-  elementClicked() {
+  elementClicked(): void {
     this.elementSelected.emit(this.element);
   }
 

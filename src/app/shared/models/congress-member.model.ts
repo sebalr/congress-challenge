@@ -1,5 +1,6 @@
 import { ICongressMember } from 'src/app/shared/interfaces/congress-member.interface';
 
+/* tslint:disable */
 export class CongressMemberModel {
 
   public id: string;
