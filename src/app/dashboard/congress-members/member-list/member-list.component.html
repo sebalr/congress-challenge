@@ -13,7 +13,11 @@
       State
     </div>
   </slr-table-header>
-  <slr-table-row *ngFor="let member of congressMembersList; trackBy: trackByCongress">
+  <slr-table-row
+   *ngFor="let member of congressMembersList; trackBy: trackByCongress"
+   [element]="member"
+   (elementSelected)="memberClicked($event)"
+  >
     <div class="name">
       {{member.first_name}} {{member.middle_name}} {{member.last_name}}
     </div>

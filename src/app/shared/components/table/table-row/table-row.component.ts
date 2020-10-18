@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'slr-table-row',
@@ -7,6 +7,15 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableRowComponent implements OnInit {
+
+  @Input() public element: any;
+  @Output() public elementSelected = new EventEmitter<any>();
+
+  @HostListener('click')
+  elementClicked() {
+    this.elementSelected.emit(this.element);
+  }
+
 
   constructor() { }
 

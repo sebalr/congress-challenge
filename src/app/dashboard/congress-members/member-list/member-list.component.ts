@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICongressMember } from 'src/app/shared/interfaces/congress-member.interface';
+import { CongressMemberModel } from 'src/app/shared/models/congress-member.model';
 
 @Component({
   selector: 'slr-member-list',
@@ -14,7 +16,12 @@ export class MemberListComponent implements OnInit {
     return member.id;
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  public memberClicked(memer: CongressMemberModel) {
+    this.router.navigate(['/detail', memer.id]);
+  }
+
 
   ngOnInit(): void {
   }
