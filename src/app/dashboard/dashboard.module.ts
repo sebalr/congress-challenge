@@ -6,6 +6,7 @@ import { MemberListComponent } from 'src/app/dashboard/congress-members/member-l
 import { DashboardRoutingModule } from 'src/app/dashboard/dashboard-routing.module';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MemberDetailComponent } from './congress-members/member-detail/member-detail.component';
 
 
 
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     DashboardComponent,
     MemberListComponent,
-    CongressMembersComponent
+    CongressMembersComponent,
+    MemberDetailComponent
   ],
   imports: [
     CommonModule,

@@ -25,4 +25,18 @@ export class CongressApiService {
         )
       );
   }
+  public getCongressMember(id: string): Observable<ICongressMembersResult> {
+    return this.http.get<ICongressMembersResponse>(`${this.apiUrl}/congress/v1/members/${id}.json`)
+      .pipe(
+        map(
+          res => {
+            if (res.status === 'OK') {
+              return res.results[0];
+            } else {
+              throwError(new Error(res.status));
+            }
+          }
+        )
+      );
+  }
 }
