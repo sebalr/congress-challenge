@@ -57,8 +57,8 @@ export class CongressMembersComponent implements OnInit, OnDestroy {
         debounceTime(300),
         distinctUntilChanged()
       ).subscribe(value => {
-        this.nameInputForm.setValue('');
-        this.partyInputForm.setValue('');
+        this.nameInputForm.setValue('', { emitEvent: false });
+        this.partyInputForm.setValue('', { emitEvent: false });
         this.filteredCongressList = this.congressList.filter(x => x.toString().includes(value?.toLowerCase()))
       }
       )
@@ -68,8 +68,8 @@ export class CongressMembersComponent implements OnInit, OnDestroy {
         debounceTime(300),
         distinctUntilChanged()
       ).subscribe(value => {
-        this.partyInputForm.setValue('');
-        this.searchInputForm.setValue('');
+        this.partyInputForm.setValue('', { emitEvent: false });
+        this.searchInputForm.setValue('', { emitEvent: false });
         this.filteredCongressList = this.congressList.filter(x => x.fullName().includes(value?.toLowerCase()))
       }
       )
@@ -79,8 +79,8 @@ export class CongressMembersComponent implements OnInit, OnDestroy {
         debounceTime(300),
         distinctUntilChanged()
       ).subscribe(value => {
-        this.nameInputForm.setValue('');
-        this.searchInputForm.setValue('');
+        this.nameInputForm.setValue('', { emitEvent: false });
+        this.searchInputForm.setValue('', { emitEvent: false });
         this.filteredCongressList = this.congressList.filter(x => x.party?.toLowerCase().includes(value?.toLowerCase()))
       }
       )
