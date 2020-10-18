@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TableComponent } from './components/table/table.component';
-import { TableRowComponent } from './components/table/table-row/table-row.component';
+import { NgModule } from '@angular/core';
 import { TableHeaderComponent } from './components/table/table-header/table-header.component';
+import { TableRowComponent } from './components/table/table-row/table-row.component';
+import { TableComponent } from './components/table/table.component';
 
 
 

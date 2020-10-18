@@ -1,0 +1,10 @@
+<label>
+  Search:
+  <input id="input-seach" type="text" placeholder="Search by any field" [formControl]="searchInputForm">
+</label>
+
+<slr-member-list *ngIf="filteredCongressList.length >0; else noResult" [congressMembersList]="filteredCongressList">
+</slr-member-list>
+<ng-template #noResult>
+  No members found
+</ng-template>

@@ -1,4 +1,4 @@
-import { ICongressMember } from "./congress-member.interface";
+import { ICongressMember } from './congress-member.interface';
 
 export interface ICongressMembersResponse {
   status: string;
