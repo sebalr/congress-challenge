@@ -1,9 +1,0 @@
-:host{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-main {
-  flex: 1; /* takes the remaining height of the "container" div */
-  overflow: auto; /* to scroll just the "main" div */
-}
